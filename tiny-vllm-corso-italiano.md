@@ -242,7 +242,7 @@ La risposta è che serve a poter rappresentare anche numeri più piccoli di 1. N
 
 Quindi il bias per float16 è 15. Significa che puoi rappresentare sia numeri più piccoli che più grandi.
 
-Ci sono altre cose interessanti nella specifica dei numeri floating-point, come come codifichiamo gli infiniti positivi e negativi, come codifichiamo il valore non-un-numero (NaN), ecc. [Wikipedia ha molti esempi sulla codifica dell'esponente](https://en.wikipedia.org/wiki/Bfloat16_floating-point_format#Exponent_encoding).
+Ci sono altre cose interessanti nella specifica dei numeri floating-point, come codifichiamo gli infiniti positivi e negativi, come codifichiamo il valore non-un-numero (NaN), ecc. [Wikipedia ha molti esempi sulla codifica dell'esponente](https://en.wikipedia.org/wiki/Bfloat16_floating-point_format#Exponent_encoding).
 
 > Le dimensioni di esponente e frazione sono le principali differenze tra i diversi tipi di numeri floating-point.
 

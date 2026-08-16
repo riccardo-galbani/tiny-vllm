@@ -2,6 +2,8 @@
 
 > **Nota di Claude**: questa è una traduzione italiana fedele del README/corso originale di [Jędrzej Maczan](https://github.com/jmaczan/tiny-vllm) (repo `jmaczan/tiny-vllm`, licenza Apache-2.0). Ho tradotto ogni sezione controllandola riga per riga contro l'originale in inglese, per non perdere nessun esempio, digressione o nota. Il codice resta come nell'originale (variabili, commenti e nomi di funzione in inglese, come è normale per il codice sorgente). Le tre sezioni finali (PagedAttention, Paged KV cache, kernel CUDA per Paged Attention) erano, nell'originale, marcate solo con la parola "Incoming!" (l'autore non le aveva ancora scritte). Ho riportato fedelmente quel breve testo originale e poi aggiunto, **in un blocco separato e chiaramente marcato**, la mia interpretazione di cosa conterranno probabilmente, basata sul paper vLLM originale — così resta sempre distinguibile cosa è di Maczan e cosa è mio.
 
+> **Nota autore**: questo branch è una customizzazione per l'atchitettura NVIDIA GB10 cuda-arch: sm_121a
+
 Stai per costruire un motore di inferenza LLM ad alte prestazioni con C++ e CUDA — tiny-vllm, un fratello minore e più piccolo di [vLLM](https://github.com/vllm-project/vllm).
 
 Impareremo molto lungo il percorso, faremo errori e deriveremo le idee e la matematica da zero.

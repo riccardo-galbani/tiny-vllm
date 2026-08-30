@@ -921,7 +921,7 @@ Torniamo ai modelli linguistici di grandi dimensioni. La moltiplicazione di matr
 
 ## Il trucco di trasposizione column-major → row-major
 
-**TL;DR: se i tuoi dati sono in formato row-major e userai cuBLAS, allora imposta il flag di trasposizione a `CUBLAS_OP_T` per le matrici che non sono ancora trasposte, e `CUBLAS_OP_N` per le matrici che sono trasposte nella tua formula.**
+**TL;DR:** se i tuoi dati sono in formato row-major e userai cuBLAS, allora imposta il flag di trasposizione a `CUBLAS_OP_T` per le matrici che non sono ancora trasposte, e `CUBLAS_OP_N` per le matrici che sono trasposte nella tua formula.**
 
 Ora la derivazione e la comprensione:
 
@@ -933,7 +933,7 @@ Si scopre che non dobbiamo modificare il formato dei dati per usare le funzioni 
 
 $$[A^T]_{ij}=[A]_{ji} \qquad C^T=B^T \times A^T \qquad (A^T)^T=A$$
 
-Il "$^T$" significa che trasponiamo la matrice. Trasporre una matrice trasforma le colonne in righe, e le righe in colonne. Quando memorizzi la matrice in formato row-major, e cuBLAS la legge in formato column-major, è l'equivalente di trasporre la matrice.
+Il " $^T$ " significa che trasponiamo la matrice. Trasporre una matrice trasforma le colonne in righe, e le righe in colonne. Quando memorizzi la matrice in formato row-major, e cuBLAS la legge in formato column-major, è l'equivalente di trasporre la matrice.
 
 Vediamo un esempio per capirlo meglio: vogliamo calcolare $C = A \times B$, dove A ha dimensioni (5, 2048) e B ha dimensioni (512, 2048). La dimensione desiderata di C è (5, 512). In questo momento, le dimensioni di A e B sono incompatibili: $A(5, 2048)$ e $B(512, 2048)$. Ricordi che per ottenere $C(M,N)$ ci servono $A(M,K)$ e $B(K,N)$? In altre parole, la seconda dimensione di A e la prima dimensione di B devono essere uguali. Per ottenerlo, dobbiamo trasporre B. La formula diventa ora: $C = A \times B^T$. Le dimensioni ora vanno bene: $A(5,2048) \times B(2048, 512) = C(5, 512)$. Okay, quindi ora vorremmo usare cuBLAS per calcolare C.
 
